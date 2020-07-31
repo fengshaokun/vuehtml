@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		 <script src="lib/vue.js"></script>
+		<style>
+			.red{
+				color: red;
+			}
+			.bulue{
+				font-size: 0.625rem;
+			}
+		</style>
+	</head>
+<body>
+
+<div id="app">
+      <!-- 对象绑定 -->
+  <!--  <h1 :class="['red','bulue']" style="color: red;">{{ msg }}</h1> -->
+	<!-- 遍历普通数组 -->
+<!-- 	<p v-for="(item,i) in list"> -->
+		<!-- {{i}}--------{{item}} -->
+	<!-- </p> -->
+	<!-- 遍历对象数组 -->
+	<!-- <p v-for="(item,i) in lists">
+		{{item.id}}--------{{item.name}}
+	</p> -->
+	<!-- 遍历对象 -->
+<!-- 	<p v-for="(key,val,i) in user">
+		{{key}}-----{{val}}-----{{i}}
+	</p> -->
+	<div>
+		<input type="text" v-model="id" />
+		<input type="text" v-model="name" />
+		<input type="button" value="添加" @click="add" />
+		<p v-for="item in lists " :key="item.id">
+			<input type="checkbox" />{{item.id}}---->{{item.name}}
+		</p>
+	</div>
+	
+	
+</div>
+
+
+
+<script>
+    new Vue({
+		el:'#app',
+		data:{
+			id:'',
+			name:'',
+			msg:123,
+			list:[1,2,3,4,5],
+		    lists:[
+				{id:1,name:'yikun01'},
+				{id:2,name:'yikun02'},
+				{id:3,name:'yikun03'},
+				{id:4,name:'yikun04'}
+			],
+			user:{
+				id:1,
+				name:'yikun',
+				gender:'男'
+			},
+			
+		},
+		methods:{
+			add(){
+				this.lists.unshift({id:this.id,name:this.name})
+			}
+		}
+	})
+</script>
+</body>
+</html>
